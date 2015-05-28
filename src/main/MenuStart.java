@@ -1,5 +1,6 @@
-package main;
-import Gameobjects.Spieler;
+package src.main;
+
+import src.Gameobjects.*;
 
 import java.util.Scanner;
 
@@ -25,7 +26,6 @@ public class MenuStart {
         System.out.println("\nEs sind " + spieler + " Spieler");
         for (int i=0; i<anzspieler.length;i++){
             anzspieler[i] = new Spieler();
-            anzspieler
         }
 
         schiffeSetzen();
