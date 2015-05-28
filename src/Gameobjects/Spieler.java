@@ -1,4 +1,4 @@
-package Gameobjects;
+package src.Gameobjects;
 
 /**
  * Created by Zimmermann on 27.05.15.
