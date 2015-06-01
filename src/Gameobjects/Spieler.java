@@ -11,12 +11,12 @@ public class Spieler {
     public void Spieler(){
 
     }
+    public void setName(String spielername){
 
-    public void setName(String sname){
-        this.name = sname;
+        this.name = spielername;
     }
-    public void setAlter(int salter){
-        this.alter = salter;
-    }
+    public void setAlter(int spieleralter){
 
+        this.alter = spieleralter;
+    }
 }
