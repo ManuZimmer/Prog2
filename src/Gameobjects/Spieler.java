@@ -19,4 +19,6 @@ public class Spieler {
 
         this.alter = spieleralter;
     }
+
+
 }

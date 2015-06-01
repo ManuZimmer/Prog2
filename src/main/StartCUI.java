@@ -3,18 +3,14 @@ import java.util.Scanner;
 
 public class StartCUI {
 
-
-
     public static void main(String[] args) {  // psv "tab-taste
         menuAusgabe();
     }
 
     public static void menuAusgabe(){
 
-
         boolean exit = false;
         do{
-
 
             int eingabezahl;
 
@@ -45,7 +41,6 @@ public class StartCUI {
             } catch (Exception e) {
                 System.out.println("Falsche Eingabe");
             }
-
         }
         while(exit==false);
     }

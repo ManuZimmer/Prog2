@@ -12,7 +12,7 @@ public class MenuStart {
     static int eingabezahl;
     static Scanner s = new Scanner(System.in);
 
-    public static void hauptMenu() {
+    public static void hauptMenu(){
         System.out.println("     1. Neues Spiel");
         System.out.println("     2. Spiel laden");
         System.out.println("     3. Beenden");
@@ -26,6 +26,7 @@ public class MenuStart {
         System.out.println("\nEs sind " + spieler + " Spieler");
         for (int i=0; i<anzspieler.length;i++){
             anzspieler[i] = new Spieler();
+            System.out.println("Spieler"+anzspieler[spieler]+" name eingeben: ");
         }
 
         schiffeSetzen();
