@@ -9,10 +9,22 @@ public class Spiel {
 
     static int eingabezahl;
     static Scanner s = new Scanner(System.in);
+    static Spieler[] anzspieler;
+    static int anzahlSchiffe;
+    static int corvetten;
+    static int uboote;
+    static int zerstoerer;
+    static int fregatten;
 
     public static void main(String[] args) {  // psv "tab-taste
 
         menuAusgabe();
+    }
+
+    public static void neuesSpiel(){
+        spielerErstellen();
+        anzahlSchiffeBestimmen();
+        schiffeErstellen();
     }
 
     public static void menuAusgabe(){
@@ -61,33 +73,34 @@ public class Spiel {
         System.out.println("     4. Info");
     }
 
-    public static void spielerErstellen(int anzahl){
-        Spieler[] anzspieler = new Spieler[anzahl];
-        System.out.println("Es sind " + anzahl + " Spieler");
-        for (int i=0; i<anzspieler.length;i++){
-            anzspieler[i] = new Spieler();
-            System.out.println("Wie soll Spieler " +(i+1)+" heissen?");
-            anzspieler[i].setName(s.next());
-        }
-        System.out.println("Es spielen: ");
-        for (int i=0;i<anzspieler.length;i++){
-            System.out.println(anzspieler[i].getName());
-        }
-    }
+    public static void spielerErstellen(){
 
-    public static void neuesSpiel(){
         System.out.println("Anzahl Spieler: ");
         int spieler = s.nextInt();
 
         if (spieler<=1){
             System.out.println("Witzbold...");
-            neuesSpiel();
+            spielerErstellen();
 
         }
         else {
-            spielerErstellen(spieler);
+            anzspieler = new Spieler[spieler];
+            System.out.println("Es sind " + spieler + " Spieler");
+            for (int i=0; i<anzspieler.length;i++){
+                anzspieler[i] = new Spieler();
+                System.out.println("Wie soll Spieler " +(i+1)+" heissen?");
+                anzspieler[i].setName(s.next());
+            }
+            System.out.println("Es spielen: ");
+            for (int i=0;i<anzspieler.length;i++){
+                System.out.println(anzspieler[i].getName());
+            }
         }
+
+
     }
+
+
 
     public static void info(){
         System.out.println("Willkommen beim Schiffe versenken!");
@@ -97,41 +110,27 @@ public class Spiel {
         System.out.println("Momentan nicht Möglich");
     }
 
-    public static void schiffeSetzen(){
-        int anzahlSchiffe = 0;
+    public static void schiffeErstellen(){
+        for (int i=0;i<anzspieler.length;i++){
+            anzspieler[i].schiffeErstellen(fregatten, zerstoerer, uboote, corvetten, anzahlSchiffe);
+        }
+    }
+
+    public static void anzahlSchiffeBestimmen(){
+        anzahlSchiffe = 0;
         System.out.println("Anzahl Fregatten: ");
-        int fregatten = s.nextInt();
+        fregatten = s.nextInt();
         anzahlSchiffe += fregatten;
         System.out.println("Anzahl Zerstoerer: ");
-        int zerstoerer = s.nextInt();
+        zerstoerer = s.nextInt();
         anzahlSchiffe += zerstoerer;
         System.out.println("Anzahl Uboote: ");
-        int uboot = s.nextInt();
-        anzahlSchiffe += uboot;
+        uboote = s.nextInt();
+        anzahlSchiffe += uboote;
         System.out.println("Anzahl Corvetten: ");
-        int corvette = s.nextInt();
-        anzahlSchiffe += corvette;
+        corvetten = s.nextInt();
+        anzahlSchiffe += corvetten;
 
-        Schiff[] alleSchiffe = new Schiff[anzahlSchiffe];
-        //Array wird mit den Schiffen gefuehlt
-        for (int i =0;i<anzahlSchiffe;i++){
-            if (fregatten>0){
-                alleSchiffe[i] = new Fregatte();
-                fregatten --;
-            }
-            else if (zerstoerer>0){
-                alleSchiffe[i] = new Zerstoerer();
-                zerstoerer--;
-            }
-            else if (uboot>0){
-                alleSchiffe[i] = new UBoot();
-                uboot--;
-            }
-            else if(corvette>0){
-                alleSchiffe[i] = new Corvette();
-                corvette--;
-            }
-        }
-        System.out.println("Es wird mit "+anzahlSchiffe+" Schiffen gespielt.");
+
     }
 }
