@@ -19,7 +19,6 @@ public class Spiel {
     public static void main(String[] args) {  // psv "tab-taste
 
         menuAusgabe();
-
     }
 
     public static void neuesSpiel(){
@@ -42,8 +41,8 @@ public class Spiel {
                 switch (eingabezahl) {
                     case 1:
                         neuesSpiel();
-
                         exit = true;
+                        break;
                     case 2:
                         spielLaden();
                     case 3:
@@ -61,7 +60,6 @@ public class Spiel {
         while(exit==false);
     }
 
-
     public static void hauptMenu(){
         System.out.println("     1. Neues Spiel");
         System.out.println("     2. Spiel laden");
@@ -75,7 +73,7 @@ public class Spiel {
         int spieler = s.nextInt();
 
         if (spieler<=1){
-            System.out.println("Witzbold...");
+            System.out.println("mindestens 2 Spieler sollten es schon sein");
             spielerErstellen();
 
         }
@@ -92,11 +90,7 @@ public class Spiel {
                 System.out.println(anzspieler[i].getName());
             }
         }
-
-
     }
-
-
 
     public static void info(){
         System.out.println("Willkommen beim Schiffe versenken!");
@@ -126,7 +120,5 @@ public class Spiel {
         System.out.println("Anzahl Corvetten: ");
         corvetten = s.nextInt();
         anzahlSchiffe += corvetten;
-
-
     }
 }
