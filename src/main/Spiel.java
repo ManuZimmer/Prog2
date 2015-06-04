@@ -19,6 +19,7 @@ public class Spiel {
     public static void main(String[] args) {  // psv "tab-taste
 
         menuAusgabe();
+
     }
 
     public static void neuesSpiel(){
@@ -43,18 +44,13 @@ public class Spiel {
                         neuesSpiel();
 
                         exit = true;
-                        break;
                     case 2:
                         spielLaden();
-                        break;
                     case 3:
                         System.exit(0);
-                        break;
                     case 4:
                         info();
-                        break;
                     default:
-
                         System.out.println("Zahl zwischen 1 und 4 eingeben");
                         break;
                 }
