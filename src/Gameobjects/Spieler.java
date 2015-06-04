@@ -6,7 +6,6 @@ package src.Gameobjects;
 public class Spieler {
 
     String name;
-    int alter;
 
     public void Spieler(){
 
@@ -15,10 +14,8 @@ public class Spieler {
 
         this.name = spielername;
     }
-    public void setAlter(int spieleralter){
 
-        this.alter = spieleralter;
+    public String getName(){
+        return name;
     }
-
-
 }

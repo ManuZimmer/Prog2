@@ -12,9 +12,11 @@ public class Schiff {
 
     }
     public void setName(String schiffname){
+
         name=schiffname;
     }
     public void setLaenge(int schifflaenge){
+
         laenge=schifflaenge;
     }
 }
